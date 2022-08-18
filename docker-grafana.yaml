@@ -7,7 +7,7 @@ networks:
 
 services:
   grafatest:    
-    container_name: grafatest
+    container_name: grafatest2
     image: grafana/grafana-oss
     tty: true
     stdin_open: true
@@ -18,9 +18,9 @@ services:
     # working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     ports:
-        - 3000:3000
+        - 3006:3000
     volumes:
-        - ./grafana/public:/usr/share/grafana/public
-        - ./grafana/tools:/usr/share/grafana/tools
+        - ./public:/usr/share/grafana/public
+        - ./tools:/usr/share/grafana/tools
     networks:
       - netname
