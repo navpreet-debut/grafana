@@ -1,0 +1,26 @@
+
+version: '2'
+
+networks:
+  netname:
+    name: grafana-test
+
+services:
+  grafatest:    
+    container_name: grafatest
+    image: grafana/grafana-oss
+    tty: true
+    stdin_open: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=INFO
+    # working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    ports:
+        - 3000:3000
+    volumes:
+        - ./grafana/public:/usr/share/grafana/public
+        - ./grafana/tools:/usr/share/grafana/tools
+    networks:
+      - netname
