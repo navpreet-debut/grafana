@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react';
 
-import { LoadingPlaceholder } from '@grafana/ui';
+// import { LoadingPlaceholder } from '@grafana/ui';
 
 export const LoadingChunkPlaceHolder: FunctionComponent = React.memo(() => (
   <div className="preloader">
-    <LoadingPlaceholder text={'Loading...'} />
+    {/* TBD: Navpreet chnage loading <LoadingPlaceholder text={'Loading...'} /> */}
+    Loading...
   </div>
 ));
 

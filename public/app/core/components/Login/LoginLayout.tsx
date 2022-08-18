@@ -24,15 +24,20 @@ export const LoginLayout: FC = ({ children }) => {
 
   return (
     <Branding.LoginBackground className={cx(loginStyles.container, startAnim && loginStyles.loginAnim)}>
+      <div className="login-banner">
+        <img src="public/img/login-banner-man.svg" alt="" />
+      </div>
       <div className={cx(loginStyles.loginContent, Branding.LoginBoxBackground(), 'login-content-box')}>
-        <div className={loginStyles.loginLogoWrapper}>
+        <div className={loginStyles.loginLogoWrapper} style={{ padding: '0px 50px' }}>
           <Branding.LoginLogo className={loginStyles.loginLogo} />
           <div className={loginStyles.titleWrapper}>
             <h1 className={loginStyles.mainTitle}>{Branding.LoginTitle}</h1>
             {subTitle && <h3 className={loginStyles.subTitle}>{Branding.GetLoginSubTitle()}</h3>}
           </div>
         </div>
-        <div className={loginStyles.loginOuterBox}>{children}</div>
+        <div className={loginStyles.loginOuterBox} style={{ padding: '0px 50px' }}>
+          {children}
+        </div>
       </div>
       <Footer />
     </Branding.LoginBackground>
@@ -59,7 +64,7 @@ export const getLoginStyles = (theme: GrafanaTheme2) => {
       minWidth: '100%',
       marginLeft: 0,
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
     }),
@@ -68,8 +73,24 @@ export const getLoginStyles = (theme: GrafanaTheme2) => {
         opacity: 1;
       }
 
+      .login-banner {
+        flex: 0 0 50%;
+        max-width: 50%;
+        z-index: 2;
+      }
+      .login-banner img {
+        width: 100%;
+        max-width: 550px;
+        box-sizing: border-box;
+      }
+
       .login-content-box {
         opacity: 1;
+        max-width: 450px;
+        background-color: #0a0041;
+        border-radius: 8px;
+        margin: auto;
+        box-sizing: border-box;
       }
     `,
     submitButton: css`
@@ -78,12 +99,12 @@ export const getLoginStyles = (theme: GrafanaTheme2) => {
     `,
     loginLogo: css`
       width: 100%;
-      max-width: 60px;
+      max-width: 215px;
       margin-bottom: 15px;
 
-      @media ${styleMixins.mediaUp(theme.v1.breakpoints.sm)} {
+      /* @media ${styleMixins.mediaUp(theme.v1.breakpoints.sm)} {
         max-width: 100px;
-      }
+      } */
     `,
     loginLogoWrapper: css`
       display: flex;
@@ -96,7 +117,7 @@ export const getLoginStyles = (theme: GrafanaTheme2) => {
       text-align: center;
     `,
     mainTitle: css`
-      font-size: 22px;
+      font-size: 24px;
 
       @media ${styleMixins.mediaUp(theme.v1.breakpoints.sm)} {
         font-size: 32px;

@@ -101,7 +101,7 @@ export const Examples: ComponentStory<typeof ToolbarButton> = (args) => {
         <ToolbarButtonRow>
           <ToolbarButton>Just text</ToolbarButton>
           <ToolbarButton icon="sync" tooltip="Sync" />
-          <ToolbarButton imgSrc="./grafana_icon.svg">With imgSrc</ToolbarButton>
+          <ToolbarButton imgSrc="./seachange-logo.ico">With imgSrc</ToolbarButton>
           <ToolbarButton icon="cloud" isOpen={true}>
             isOpen
           </ToolbarButton>

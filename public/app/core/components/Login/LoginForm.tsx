@@ -24,6 +24,33 @@ const wrapperStyles = css`
 export const submitButton = css`
   justify-content: center;
   width: 100%;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  padding: 12px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  background-color: #2999d3;
+  text-align: center;
+  cursor: pointer;
+`;
+
+const customStyle = css`
+   {
+    font-size: 14px;
+    color: #373737;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    background-clip: padding-box;
+    box-sizing: border-box;
+    border: 1px solid #dedede;
+    display: block;
+    width: 100%;
+  }
 `;
 
 export const LoginForm: FC<Props> = ({ children, onSubmit, isLoggingIn, passwordHint, loginHint }) => {
@@ -39,6 +66,7 @@ export const LoginForm: FC<Props> = ({ children, onSubmit, isLoggingIn, password
                 autoCapitalize="none"
                 placeholder={loginHint}
                 aria-label={selectors.pages.Login.username}
+                className={customStyle}
               />
             </Field>
             <Field label="Password" invalid={!!errors.password} error={errors.password?.message}>
